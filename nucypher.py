@@ -8,23 +8,6 @@ import json
 
 
 class MockNetwork(object):
-    """
-    This is a mock of the NuCypher network for Hackathons.
-
-    Note: The actual network is not ready yet and is in current active development.
-        Hackers should use this as a means to play with and simulate the real network.
-
-    BASIC OVERVIEW:
-        Call `grant` with a list of kfrags from Umbral to grant a policy on the mock
-        network. This will return a policy id that you will use to access the mock network.
-
-        Call `reencrypt` to perform a complete mocked re-encryption on the NuCypher network.
-        This does not require that you search for nodes on the network, this works only if you know
-        the minimum number of re-encryptions (`M`).
-
-        Call `revoke` to revoke a policy on the mock NuCypher network. This works by simply
-        deleting the kfrags off the mocked network.
-    """
 
     def __init__(self):
         self.db = {}
@@ -80,7 +63,6 @@ class MockNetwork(object):
         """
         Revokes the Policy on the mock NuCypher network by deleting the policy
         and the associated kfrags.
-
         :param policy_id: The policy_id to revoke.
         """
         del(self.db[policy_id])
